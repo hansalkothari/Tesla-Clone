@@ -10,7 +10,8 @@ export default function Header() {
 
   const [burgerStatus, setBurgerStatus] = useState(false);
   const cars = useSelector(selectCars);
-  
+  console.log(cars);
+
   return (<div>
     <Container>
       <a>
@@ -20,7 +21,7 @@ export default function Header() {
       <Menu>
         {
           cars && cars.map((car,index) =>(
-            <a key={index} href="#">{car}</a>
+            <a key={car} href="#">{car}</a>
           ))
         }
         
@@ -110,15 +111,14 @@ const BurgerNav = styled.div`
   text-align:start;
   transform: ${props => props.show?'translateX(0)':'translateX(100%)'};
   transition: transform 0.8s;
-  }
+  
   li{
     padding:15px;
     border-bottom:1px solid rgba(0,0,0,.2);
     a{
       font-weight:600;
     }
-  }
-  
+  }  
 `
 
 const CustomClose = styled(CloseIcon)`
